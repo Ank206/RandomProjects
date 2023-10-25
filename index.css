@@ -1,0 +1,41 @@
+body {
+  height: 100vh;
+  width: 100vw;
+  background-color: black;
+  margin: 0rem;
+  overflow: hidden;
+}
+#image-track > .image {
+  width: 40vmin;
+  height: 56vmin;
+  object-fit: cover;
+  object-position: 0% center;
+  user-select: none;
+}
+#image-track {
+  display: flex;
+  gap: 4vmin;
+  position: absolute;
+  left: 10%;
+  top: 50%;
+  transform: translate(0%, -50%);
+}
+#me {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* text-align: left; */
+  width: 40vmin;
+  gap: 10px;
+  margin: 40px;
+  margin-left: 100px;
+  margin-right: 200px;
+}
+#me > .test {
+  margin: 0;
+  /* color: blue; */
+  font-size: 3rem;
+  font-family: "Rubik", sans-serif;
+  text-transform: uppercase;
+}
