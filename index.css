@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=PT+Mono&display=swap");
 body {
   height: 100vh;
   width: 100vw;
@@ -26,16 +27,26 @@ body {
   flex-direction: column;
   justify-content: center;
   /* text-align: left; */
-  width: 40vmin;
+  width: 47vmin;
   gap: 10px;
   margin: 40px;
   margin-left: 100px;
   margin-right: 200px;
 }
-#me > .test {
+#me > .line {
   margin: 0;
   /* color: blue; */
   font-size: 3rem;
-  font-family: "Rubik", sans-serif;
+  font-family: "PT Mono", monospace;
   text-transform: uppercase;
+  display: flex;
+  justify-content: space-between;
+  /* margin: 0; */
+}
+#me > .line > .word {
+  margin: 0;
+}
+
+#me > .line:has(.fancy:hover) .word:not(.fancy) {
+  opacity: 0.2;
 }

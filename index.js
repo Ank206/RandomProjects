@@ -47,8 +47,19 @@ window.onmousemove = (e) => {
   }
 };
 
-document.querySelectorAll("h1").forEach((h1) => {
+document.querySelectorAll(".word").forEach((h1) => {
   h1.onmouseover = (event) => {
+    // !(event.target.style.color) = "green";
+    // event.t;
     event.target.style.color = "red";
   };
+  h1.onmouseout = (e) => {
+    e.target.style.color = "white";
+  };
 });
+
+// document.querySelectorAll(".word").forEach((h1) => {
+//   h1.onmouseout = (e) => {
+//     e.target.style.color = "white";
+//   };
+// });
