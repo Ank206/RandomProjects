@@ -62,6 +62,11 @@ const elements = document.querySelectorAll(".word");
 function makeRed(event) {
   // event.target.style.color = "red";
   event.target.style.opacity = 1;
+  // event.target.children[0].style.color = "red";
+  const childElements = event.target.querySelectorAll(".letter");
+  childElements.forEach((childElement) => {
+    childElement.style.opacity = 1;
+  });
 
   elements.forEach((element) => {
     if (element !== event.target) {
@@ -91,4 +96,74 @@ elements.forEach((element) => {
 //   h1.onmouseout = (e) => {
 //     e.target.style.color = "white";
 //   };
+// });
+
+// const enhance = (id) => {
+//   // document.get;``
+//   const element = document.getElementsByClassName(id);
+//   const text = element.innerText.split("");
+//   // now the text array has all the words of the tag selected by the id.
+//   element.innerText = "";
+
+//   text.forEach((letter) => {
+//     const span = document.createElement("span");
+//     span.className = "letter";
+//     span.innerText = letter;
+//     element.appendChild(span);
+//   });
+// };
+
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// const enhance = (e) => {
+//   const text = e.innerText.split("");
+//   // now the text array has all the words of the tag selected by the id.
+//   e.innerText = ".";
+//   // e.style.padding = 10px;
+
+//   text.forEach((letter) => {
+//     const span = document.createElement("div");
+//     span.className = "letter";
+//     span.innerText = letter;
+//     e.appendChild(span);
+//   });
+// };
+
+// const q = document.querySelectorAll("#wordid");
+// q.forEach((word) => {
+//   enhance(word);
+// });
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// const letterSelector = document.querySelectorAll(".letter");
+// letterSelector.forEach((element) => {
+//   element.addEventListener("mouseover", makeRed);
+//   element.addEventListener("mouseout", back);
+//   element.style.color = "red";
+// });
+// const a = document.querySelectorAll(".letter");
+// function makeRed(event) {
+//   // event.target.style.color = "red";
+//   event.target.style.opacity = 1;
+
+//   a.forEach((element) => {
+//     if (element !== event.target) {
+//       // element.style.color = "green";
+//       element.style.opacity = 0.3;
+//     }
+//   });
+// }
+// function back(event) {
+//   // event.target.style.color = "white";
+//   event.target.style.opacity = 1;
+
+//   a.forEach((element) => {
+//     if (element !== event.target) {
+//       // element.style.color = "white";
+//       element.style.opacity = 1;
+//     }
+//   });
+// }
+
+// a.forEach((element) => {
+//   element.addEventListener("mouseover", makeRed);
+//   element.addEventListener("mouseout", back);
 // });
