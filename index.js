@@ -167,3 +167,61 @@ window.onmousemove = (e) => {
 //   element.addEventListener("mouseover", makeRed);
 //   element.addEventListener("mouseout", back);
 // });
+
+// ! Code for the RANFOMIZER EFFECT on the hover
+
+const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+let interval = null;
+
+const randomizer = document.querySelector("#final");
+randomizer.onmouseover = (event) => {
+  let itr = 0;
+
+  clearInterval(interval);
+
+  interval = setInterval(() => {
+    event.target.innerText = event.target.innerText
+      .split("")
+      .map((letter, index) => {
+        if (index < itr) {
+          return event.target.dataset.value[index];
+        }
+        return letters[Math.floor(Math.random() * 26)];
+      })
+      .join("");
+
+    if (itr >= event.target.dataset.value.length) {
+      clearInterval(interval);
+    }
+
+    itr += 1 / 3;
+  }, 30);
+};
+
+const allWords = document.querySelectorAll(".word");
+allWords.forEach((e) => {
+  e.onmouseover = (event) => {
+    let itr = 0;
+
+    clearInterval(interval);
+
+    interval = setInterval(() => {
+      event.target.innerText = event.target.innerText
+        .split("")
+        .map((letter, index) => {
+          if (index < itr) {
+            return event.target.dataset.value[index];
+          }
+          return letters[Math.floor(Math.random() * 26)];
+        })
+        .join("");
+
+      if (itr >= event.target.dataset.value.length) {
+        clearInterval(interval);
+      }
+
+      itr += 1 / 3;
+    }, 30);
+  };
+});

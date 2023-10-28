@@ -1,4 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=PT+Mono&display=swap");
+:root {
+  --border: rgb(3, 169, 244);
+
+  --g1: rgb(98, 0, 234);
+  --g2: rgb(236, 64, 122);
+  --g3: rgb(253, 216, 53);
+}
 body {
   height: 100vh;
   width: 100vw;
@@ -62,4 +69,71 @@ body {
 #me > .line > a:hover {
   box-shadow: inset 300px 0 0 0 #ffffff;
   color: #000000;
+}
+
+.card {
+  aspect-ratio: 1/1.6;
+  border: 0.5vmin solid var(--border);
+  cursor: pointer;
+  width: 53vmin;
+  position: relative;
+  background-color: #000000;
+}
+
+.card:before {
+  background: linear-gradient(
+    130deg,
+    transparent 0% 33%,
+    var(--g1) 66%,
+    var(--g2) 83.9%,
+    var(--g3) 100%
+  );
+  background-position: 0% 0%;
+  background-size: 300% 300%;
+  content: "";
+  height: 100%;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  transition: background-position 350ms ease, transform 350ms ease;
+  width: 100%;
+}
+
+.card:hover:before {
+  background-position: 100% 100%;
+  transform: scale(1.08, 1.03);
+  z-index: 1;
+}
+
+.card-content {
+  background: radial-gradient(rgba(255, 255, 255, 0.2) 8%, transparent 8%);
+  background-position: 0% 0%;
+  background-size: 5rem 5rem;
+  height: 100%;
+  width: calc(100% - 10vmin);
+  position: relative;
+  transition: background-position 350ms ease;
+  z-index: 2;
+  padding: 5vmin;
+}
+
+.card:hover > .card-content {
+  background-position: -10% 0%;
+}
+
+.card-title,
+.card-subtitle {
+  color: white;
+  font-family: "Anek Latin", sans-serif;
+  font-weight: 400;
+  margin: 0;
+}
+
+.card-title {
+  font-size: 6vmin;
+}
+
+.card-subtitle {
+  font-size: 3vmin;
+  margin-top: 2vmin;
 }
