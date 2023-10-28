@@ -45,8 +45,13 @@ body {
 }
 #me > .line > .word {
   margin: 0;
+  color: white;
+  transition: color 0.2s;
+  opacity: 1;
+  transition: opacity 0.2s;
 }
 
-#me > .line:has(.fancy:hover) .word:not(.fancy) {
+/* #me > .line:has(.fancy:hover) .word:not(.fancy) {
   opacity: 0.2;
-}
+} */
+/* has tag does not work in the FIREFOX */

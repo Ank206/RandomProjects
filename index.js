@@ -47,15 +47,44 @@ window.onmousemove = (e) => {
   }
 };
 
-document.querySelectorAll(".word").forEach((h1) => {
-  h1.onmouseover = (event) => {
-    // !(event.target.style.color) = "green";
-    // event.t;
-    event.target.style.color = "red";
-  };
-  h1.onmouseout = (e) => {
-    e.target.style.color = "white";
-  };
+// document.querySelectorAll(".word").forEach((h1) => {
+//   h1.onmouseover = (event) => {
+//     // !(event.target.style.color) = "green";
+//     // event.t;
+//     event.target.style.color = "red";
+//   };
+//   h1.onmouseout = (e) => {
+//     e.target.style.color = "white";
+//   };
+// });
+
+const elements = document.querySelectorAll(".word");
+function makeRed(event) {
+  // event.target.style.color = "red";
+  event.target.style.opacity = 1;
+
+  elements.forEach((element) => {
+    if (element !== event.target) {
+      // element.style.color = "green";
+      element.style.opacity = 0.3;
+    }
+  });
+}
+function back(event) {
+  // event.target.style.color = "white";
+  event.target.style.opacity = 1;
+
+  elements.forEach((element) => {
+    if (element !== event.target) {
+      // element.style.color = "white";
+      element.style.opacity = 1;
+    }
+  });
+}
+
+elements.forEach((element) => {
+  element.addEventListener("mouseover", makeRed);
+  element.addEventListener("mouseout", back);
 });
 
 // document.querySelectorAll(".word").forEach((h1) => {
