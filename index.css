@@ -67,7 +67,7 @@ body {
   transition: color 0.5s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 #me > .line > a:hover {
-  box-shadow: inset 300px 0 0 0 #ffffff;
+  box-shadow: inset 50vmin 0 0 0 #ffffff;
   color: #000000;
 }
 
@@ -136,4 +136,13 @@ body {
 .card-subtitle {
   font-size: 3vmin;
   margin-top: 2vmin;
+}
+
+#final {
+  transition: color 0.1s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+#final:hover {
+  color: #000000;
+  box-shadow: inset 1000px 0 0 0 #ffffff;
+  color: #000000;
 }
