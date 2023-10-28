@@ -1,0 +1,113 @@
+body,
+main {
+  background-color: black;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+}
+
+main {
+  background-image: url("https://images.unsplash.com/photo-1560807707-8cc77767d783?auto=format&fit=crop&q=80&w=1035&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-size: cover;
+  background-position: center 90%;
+  position: relative;
+  z-index: 2;
+  transition: transform;
+  transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition-duration: 500ms;
+}
+
+#nav-toggle {
+  height: 5rem;
+  width: 5rem;
+  position: fixed;
+  z-index: 3;
+  left: 50%;
+  bottom: 3rem;
+  transform: translateX(-50%);
+  background-color: #946c50;
+  border: none;
+  border-radius: 5rem;
+  outline: none;
+  box-shadow: 0rem 0rem 4rem rgba(0 0 0 / 35%);
+  cursor: pointer;
+  transition: transform, background-color;
+  transition-timing-function: ease;
+  transition-duration: 200ms;
+}
+#nav-toggle:hover {
+  transform: translateX(-50%) scale(1.14);
+}
+#nav-toggle:active {
+  transform: translateX(-50%) scale(0.96);
+}
+#nav-toggle > i {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  font-size: 1.5rem;
+  opacity: 0;
+  transition: transform, opacity;
+  transition-timing-function: ease;
+  transition-duration: 400ms;
+  color: white;
+}
+body:not([data-nav="true"]) > #nav-toggle:hover > .open {
+  opacity: 1;
+  transform: translate(-50%, -50%), scale(1);
+}
+
+body[data-nav="true"] > #nav-toggle > .close {
+  opacity: 1;
+  transform: translate(-50%, -50%), scale(1);
+}
+
+body[data-nav="true"] > main {
+  transform: translateY(-50%);
+}
+
+#nav-links {
+  display: flex;
+  /* padding: 20px; */
+  transform: translateY(70%) scale(0.8);
+  transition: transform 500ms cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+#nav-links > .nav-link {
+  text-decoration: none;
+  margin: 20px;
+}
+
+#nav-links > .nav-link > .nav-link-label {
+  color: white;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 2rem;
+  margin: 0px;
+  text-transform: uppercase;
+}
+
+#nav-links > .nav-link > .nav-link-image {
+  width: 30vw;
+  /* aspect-ratio: 1.8/1; */
+  /* background-position: ; */
+  height: 40vh;
+  background-size: cover;
+  border-radius: 0.75rem;
+  object-fit: cover;
+  /* margin: 20px; */
+  margin-top: 0.45rem;
+}
+
+nav {
+  height: 50vh;
+  width: 100%;
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  z-index: 1;
+}
+
+body[data-nav="true"] > nav > #nav-links {
+  transform: translateY(0%) scale(1);
+}
