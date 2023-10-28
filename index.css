@@ -17,7 +17,7 @@ body {
   display: flex;
   gap: 4vmin;
   position: absolute;
-  left: 10%;
+  left: 8%;
   top: 50%;
   transform: translate(0%, -50%);
 }
@@ -25,40 +25,41 @@ body {
   color: white;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
   /* text-align: left; */
-  width: 47vmin;
-  gap: 10px;
-  margin: 40px;
-  margin-left: 100px;
-  margin-right: 200px;
+  width: 60vmin;
+  /* gap: 10px; */
+  /* margin: 40px; */
+  /* margin-left: -100px; */
+  margin-right: 130px;
+  height: 56vmin;
 }
 #me > .line {
   margin: 0;
-  /* color: blue; */
   font-size: 3rem;
   font-family: "PT Mono", monospace;
   text-transform: uppercase;
   display: flex;
   justify-content: space-between;
-  /* margin: 0; */
 }
 #me > .line > .word {
   margin: 0;
   color: white;
-  transition: color 0.2s;
-  opacity: 1;
-  transition: opacity 0.2s;
+  font-size: 7vmin;
+  text-decoration: none;
+  user-select: none;
+  transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
-#me > .line > p {
+
+#me > .line > a {
   margin: 0;
-  transition: color 0.2s;
-  opacity: 1;
-  /* transition: opacity 0.2s; */
+  color: white;
+  font-size: 7vmin;
+  text-decoration: none;
+  user-select: none;
+  transition: color 0.5s ease-in-out, box-shadow 0.3s ease-in-out;
 }
-#me {
-  z-index: 0;
-}
-#me > .line {
-  z-index: 1;
+#me > .line > a:hover {
+  box-shadow: inset 300px 0 0 0 #ffffff;
+  color: #000000;
 }
