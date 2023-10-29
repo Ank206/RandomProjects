@@ -32,3 +32,7 @@ element.addEventListener("mouseout", back);
 ---
 
 The above is an important piece of the Code that helps to change the properties of the elements that are "NOT SELECTED" using the JAVASCRIPT.
+
+---
+
+To make the NamePlate static implement it as the card.
