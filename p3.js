@@ -109,7 +109,8 @@ const last = {
 const config = {
   starAnimationDuration: 1500,
   minimumTimeBetweenStars: 250,
-  minimumDistanceBetweenStars: 75,
+  minimumDistanceBetweenStars: 25,
+  maxDistanceBetweenStars: 100,
   glowDuration: 75,
   maximumGlowPointSpacing: 10,
   colors: ["249 146 253", "252 254 255"],
@@ -143,19 +144,28 @@ const createStar = (position) => {
   const star = document.createElement("span"),
     color = selectRandom(config.colors);
 
-  star.className = "dot";
+  star.className = "bi bi-star-fill";
 
+  star.style.position = "absolute";
   star.style.left = px(position.x);
   star.style.top = px(position.y);
   star.style.fontSize = selectRandom(config.sizes);
   star.style.color = `rgb(${color})`;
+  // star.style.color = "white";
+  star.style.margin = px(0);
+  star.style.padding = px(0);
   star.style.textShadow = `0px 0px 1.5rem rgb(${color} / 0.5)`;
   star.style.animationName = config.animations[count++ % 3];
-  star.style.starAnimationDuration = ms(config.starAnimationDuration);
+  star.style.animationDuration = ms(config.starAnimationDuration);
 
   appendElement(star);
-
   removeElement(star, config.starAnimationDuration);
+  console.log(
+    calcDistance({ x: star.style.left, y: star.style.top }, originPosition)
+  );
+
+  if (calcDistance(star, star) > config.maxDistanceBetweenStars)
+    removeElement(star, config.starAnimationDuration);
 };
 document.addEventListener("mousemove", (e) => {
   createStar(e);
