@@ -87,3 +87,10 @@ pre::after {
   background: linear-gradient(-45deg, red, blue);
   transform: translateZ(-40px);
 }
+
+.dot {
+  height: 10px;
+  width: 10px;
+  position: absolute;
+  background-color: white;
+}
