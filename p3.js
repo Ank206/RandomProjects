@@ -109,8 +109,8 @@ const last = {
 const config = {
   starAnimationDuration: 1500,
   minimumTimeBetweenStars: 250,
-  minimumDistanceBetweenStars: 25,
-  maxDistanceBetweenStars: 100,
+  minimumDistanceBetweenStars: 10,
+  // maxDistanceBetweenStars: 1000,
   glowDuration: 75,
   maximumGlowPointSpacing: 10,
   colors: ["249 146 253", "252 254 255"],
@@ -146,27 +146,80 @@ const createStar = (position) => {
 
   star.className = "bi bi-star-fill";
 
+  star.style.opacity = 0;
   star.style.position = "absolute";
   star.style.left = px(position.x);
   star.style.top = px(position.y);
   star.style.fontSize = selectRandom(config.sizes);
   star.style.color = `rgb(${color})`;
   // star.style.color = "white";
-  star.style.margin = px(0);
-  star.style.padding = px(0);
+  // star.style.margin = px(100);
+  // star.style.padding = px(100);
   star.style.textShadow = `0px 0px 1.5rem rgb(${color} / 0.5)`;
   star.style.animationName = config.animations[count++ % 3];
   star.style.animationDuration = ms(config.starAnimationDuration);
 
-  appendElement(star);
-  removeElement(star, config.starAnimationDuration);
-  console.log(
-    calcDistance({ x: star.style.left, y: star.style.top }, originPosition)
-  );
+  //   const mousePosition = { x: position.clientX, y: position.clientY };
 
-  if (calcDistance(star, star) > config.maxDistanceBetweenStars)
-    removeElement(star, config.starAnimationDuration);
+  //   const updateLastStar = position => {
+  //   last.starTimestamp = new Date().getTime();
+
+  //   last.starPosition = position;
+  // }
+
+  // const updateLastMousePosition = position => last.mousePosition = position;
+
+  // const adjustLastMousePosition = position => {
+  //   if(last.mousePosition.x === 0 && last.mousePosition.y === 0) {
+  //     last.mousePosition = position;
+  //   }
+
+  //   if (
+  //     calcDistance(last.starPosition, mousePosition) >
+  //     config.minimumDistanceBetweenStars
+  //   )
+  appendElement(star);
+
+  removeElement(star, 1500);
 };
+
+const updateLastStar = (position) => {
+  last.starTimestamp = new Date().getTime();
+
+  last.starPosition = position;
+};
+
+const updateLastMousePosition = (position) => (last.mousePosition = position);
+
+const adjustLastMousePosition = (position) => {
+  if (last.mousePosition.x === 0 && last.mousePosition.y === 0) {
+    last.mousePosition = position;
+  }
+};
+
 document.addEventListener("mousemove", (e) => {
-  createStar(e);
+  // createStar(e);
+
+  const mousePosition = { x: e.clientX, y: e.clientY };
+
+  adjustLastMousePosition(mousePosition);
+
+  const now = new Date().getTime(),
+    hasMovedFarEnough =
+      calcDistance(last.starPosition, mousePosition) >=
+      config.minimumDistanceBetweenStars,
+    hasBeenLongEnough =
+      calcElapsedTime(last.starTimestamp, now) > config.minimumTimeBetweenStars;
+
+  console.log(hasMovedFarEnough);
+
+  if (hasMovedFarEnough) {
+    createStar(mousePosition);
+
+    updateLastStar(mousePosition);
+  }
+
+  updateLastMousePosition(mousePosition);
+
+  // if (hasMovedFarEnough) createStar(e);
 });

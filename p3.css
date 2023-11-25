@@ -94,8 +94,9 @@ pre::after {
 }
 
 .dot {
-  height: 1px;
-  width: 1px;
+  height: 5px;
+  width: 5px;
+  border-radius: 2.5px;
   position: absolute;
   background-color: white;
   /* background: hsl(224, 32%, 12%); */
@@ -108,33 +109,33 @@ pre::after {
   /* border-radius: 5px; */
 }
 
-@keyframes fall-1 {
+/* @keyframes fall-1 {
   0% {
     transform: translate(0px, 0px) rotateX(45deg) rotateY(30deg) rotateZ(0deg)
       scale(0.25);
     opacity: 0;
   }
 
-  5% {
+  15% {
     transform: translate(10px, -10px) rotateX(45deg) rotateY(30deg)
       rotateZ(0deg) scale(1);
-    opacity: 1;
+    opacity: ;
   }
 
   100% {
     transform: translate(25px, 200px) rotateX(180deg) rotateY(270deg)
       rotateZ(90deg) scale(1);
-    opacity: 0;
+    opacity: 1;
   }
-}
+} */
 
 @keyframes fall-2 {
   0% {
     transform: translate(0px, 0px) rotateX(-20deg) rotateY(10deg) scale(0.25);
-    opacity: 0;
+    opacity: 1;
   }
 
-  10% {
+  15% {
     transform: translate(-10px, -5px) rotateX(-20deg) rotateY(10deg) scale(1);
     opacity: 1;
   }
@@ -142,24 +143,23 @@ pre::after {
   100% {
     transform: translate(-10px, 160px) rotateX(-90deg) rotateY(45deg)
       scale(0.25);
-    opacity: 0;
+    opacity: 1;
   }
 }
-
-@keyframes fall-3 {
+/* @keyframes fall-3 {
   0% {
     transform: translate(0px, 0px) rotateX(0deg) rotateY(45deg) scale(0.5);
-    opacity: 0;
+    opacity: 1;
   }
 
   15% {
     transform: translate(7px, 5px) rotateX(0deg) rotateY(45deg) scale(1);
-    opacity: 1;
+    opacity: 0;
   }
 
   100% {
     transform: translate(20px, 120px) rotateX(-180deg) rotateY(-90deg)
       scale(0.5);
-    opacity: 0;
+    opacity: 1;
   }
-}
+} */
